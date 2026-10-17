@@ -25,3 +25,8 @@ p{
     font-weight: 600;
     font-size: 3vw;
 }
+button {
+    display: block;
+    margin: 20px auto;
+    transform: translateY(-100px);
+}
