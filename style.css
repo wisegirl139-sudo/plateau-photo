@@ -12,8 +12,13 @@ h1{
     color: #0b1838;
     font-size: 5vw;
 }
-.topg{
- text-align: center;
+#topg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
 }
 p{
     color: #0b1838;
