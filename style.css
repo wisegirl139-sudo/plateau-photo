@@ -28,5 +28,9 @@ p{
 button {
     display: block;
     margin: 20px auto;
-    transform: translateY(-230px);
+    transform: translateY(-270px);
+    font-family: "Atomic Age", system-ui;
+    font-size: 18px;
+    color: #E3CBA5 ;
+    background: linear-gradient(145deg,#b6b8b2,#777e82,#a4a69f);
 }
