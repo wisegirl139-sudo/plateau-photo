@@ -30,11 +30,20 @@ button {
     margin: 20px auto;
     transform: translateY(-20 0px);
     font-family: "Atomic Age", system-ui;
-    font-size: 18px;
+    font-size: 15px;
     color: #252b35 ;
     background: linear-gradient(145deg,#b6b8b2,#777e82,#a4a69f);
     box-shadow: 4px 6px #202e49,inset 3px 3px 5px #e0e0d8,inset -4px -4px 6px #555b61 ;
     border-radius: 12px;
     border-radius: 3px solid #535b64;
     padding: 18px 35px;
+    text-shadow: 1px 1px #e0e0d8;
+}
+button:hover{
+    transform: translateY(-1px);
+    box-shadow:4px 9px 0 #202e49,inset -4px -4px 6px #555b61,inset 3px 3px 5px #e0e0d8;
+}
+button:active{
+    transform: translateY(1px);
+    box-shadow: 1px 2px 0 #202e49,inset -2px -2px 4px #c5c7c0,inset 3px 3px 6px #555b61;
 }
