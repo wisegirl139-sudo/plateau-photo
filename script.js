@@ -5,7 +5,7 @@ function rsize(){
     sky.width=window.innerWidth;
     sky.height=window.innerHeight;
     clouds=[];
-    for(let i=0;i<35,i++){
+    for(let i=0;i<35;i++){
         clouds.push({
             x:Math.random()*sky.width, // this is gonna sound really RANDOM...
             y:Math.random()*sky.height,
@@ -25,5 +25,14 @@ function make(){
         g.addColorStop(0,`rgba(230,240,255,${c.a})`);
         g.addColorStop(1,"rgba(230,240,255,0)"); //always mix up` and ' and "
         ctext.fillStyle=g;
+        ctext.fillRect(c.x-c.w,c.y-c.w,c.w*2,c.w*2);
+        c.x+=c.s;
+        if(c.x-c.w>sky.width){
+            c.x=-c.w;
+        }
     }
+    requestAnimationFrame(draw);
 }
+window.addEventListener("rsize",rsize);
+rsize();
+draw();
