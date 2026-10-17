@@ -28,7 +28,7 @@ p{
 button {
     display: block;
     margin: 20px auto;
-    transform: translateY(-250px);
+    transform: translateY(-200px);
     font-family: "Atomic Age", system-ui;
     font-size: 18px;
     color: #E3CBA5 ;
