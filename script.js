@@ -16,7 +16,7 @@ function make(){
         let total=Math.ceil(sky.width/gap)+3;
         for(let i=0;i<total;i++){
             let pos=(x+i*gap)%(total*gap);
-            if(pos<-gap){
+            if(pos<-100){
                 pos+=total*gap;
             }
             ctext.save();
@@ -29,9 +29,7 @@ function make(){
 
     }
     x-=1;
-    if(x<-130){
-        x+=130;
-    }
+
     requestAnimationFrame(make);
 }
 window.addEventListener("resize",()=>{
