@@ -159,3 +159,9 @@ function picup(){
 ["b","cont","vig","warm","cold"].forEach(function(id){
     document.getElementById(id).addEventListener("input",picup);
 });
+//turn it right round baby right round
+document.getElementById("rot").addEventListener("click",function(){
+    if (!ready) return ;
+    ang=(ang+90)%360;
+    picup();
+})
