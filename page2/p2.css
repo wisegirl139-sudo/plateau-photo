@@ -119,3 +119,39 @@ header a{
     color: #0b1838;
     text-decoration: none;
 }
+#fix button{
+    padding: 10px;
+    font-family: "Atomic Age",system-ui;
+    font-size: 13px;
+    background-color: #203d70;
+    color: #e6c78a;
+    border: 2px solid #e6c78a;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#fix button:hover{
+    background-color: #e6c78a;
+    color: #0b1838;
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px #f3e6c8;
+    border-color: #203d70;
+
+}
+#fix button:active{
+    transform: translateY(2px);
+    box-shadow: none;
+}
+@keyframes pulse{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(4);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+#down.clicked{
+    animation: pulse 0.5s ease;
+}

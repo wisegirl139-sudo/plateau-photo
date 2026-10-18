@@ -35,3 +35,10 @@ window.addEventListener("resize",()=>{
     sky.height=window.innerHeight;
 });
 move();
+//let down and hanging around ,crushed like a bug in the ground, -peak song 
+let down=document.getElementById("down");
+down.addEventListener("click",function(){
+    down.classList.remove("clicked");
+    void down.offsetWidth;
+    down.classList.add("clicked");
+})
