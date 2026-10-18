@@ -90,7 +90,8 @@ header{
 }
 #drop{
     align-items: center;
-    margin-left: 240px;
+    position: relative;
+    left: 240px;
     margin-top: 30px;
     margin-right: 0;
     border: 3px dashed #e6c78a;
