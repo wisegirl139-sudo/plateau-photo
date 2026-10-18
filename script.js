@@ -5,7 +5,7 @@ function rsize(){
     sky.width=window.innerWidth;
     sky.height=window.innerHeight;
     clouds=[];
-    for(let i=0;i<35;i++){
+    for(let i=0;i<3;i++){
         clouds.push({
             x:Math.random()*sky.width, // this is gonna sound really RANDOM...
             y:Math.random()*sky.height,
@@ -22,23 +22,20 @@ function rsize(){
 let img=[];
 for(let i=1;i<=3;i++){
     let immg= new Image();
-    img.src="cloud"+i+".png";
-    img.push(img);
+    immg.src="cloud"+i+".png";
+    img.push(immg);
 }
+let x=0;
 function make(){
     ctext.clearRect(0,0,sky.width,sky.height);
-    for(let c of clouds){
-        if(!c.visible){
-            if(Math.random()<0.005){
-                c.visible=true;
-                c.x=-c.w;
-                c.y=Math.random()*sky.height;
-            }
-            continue;
-        }
-        if(c.x-c.w>sky.width){
-            c.visible=false;
-        }
+    if(img.every(im=>im.complete && im.naturalWidth>0)){
+        ctext.drawImage(img[0],x,100,200,100);
+        ctext.drawImage(img[1],x+200,100,200,100);
+        ctext.drawImage(img[2],x+400,100,200,100);
+    }
+    x+=0.5;
+    if(x>sky.width){
+        x=-600;
     }
     requestAnimationFrame(make);
 }
