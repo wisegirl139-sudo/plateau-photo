@@ -41,4 +41,20 @@ down.addEventListener("click",function(){
     down.classList.remove("clicked");
     void down.offsetWidth;
     down.classList.add("clicked");
-})
+});
+let up=document.getElementById("upload");
+let dr=document.getElementById("drop");
+let pr=document.getElementById("prev");
+let pic=new Image();
+let ready=false,
+    ang=0,
+    fx=false,
+    fy=false,//dydx? nahhh fyfx, i ush i could use memes imagien the drake one here
+    mode="original";
+    let cv=document.createElement("canvas"); //almost got a jumpscare from cv, spooky employment
+    let cx=cv.getContext("2d");
+    cv.id="photo";
+    pr.appendChild(cv);
+    function load(f){
+        
+    }
