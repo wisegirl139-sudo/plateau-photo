@@ -164,4 +164,15 @@ document.getElementById("rot").addEventListener("click",function(){
     if (!ready) return ;
     ang=(ang+90)%360;
     picup();
-})
+});
+//just flippin and floppin
+document.getElementById("flip1").addEventListener("click",function(){
+    if(!ready) return;
+    fx=!fx;
+    picup();
+});
+document.getElementById("flip2").addEventListener("click",function(){
+    if(!ready) return;
+    fy=!fy;
+    picup();
+});
