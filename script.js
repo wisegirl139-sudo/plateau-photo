@@ -14,14 +14,15 @@ function make(){
     if(img.every(im=>im.complete && im.naturalWidth>0)){
         for(let i=0;i<3;i++){
             ctext.save();
-            ctext.translate(x+i*200+100,150);
+            ctext.translate(((x+i*200)%((Math.ceil(sky.width/200)+4)*200)+
+            ((Math.ceil(sky.width/200)+4)*200))%((Math.ceil(sky.width/200)+4)*200),150);
             ctext.rotate(-Math.PI/2);
             ctext.drawImage(img[i],-50,-100,100,200);
             ctext.restore();
         }
     }
     x-=1;
-    if(x<-600){
+    if(x<-200){
         x=sky.width;
     }
     requestAnimationFrame(make);
