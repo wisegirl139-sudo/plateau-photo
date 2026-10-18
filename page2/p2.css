@@ -145,11 +145,14 @@ header a{
     0%{
         transform: scale(1);
     }
-    50%{
-        transform: scale(4);
+    30%{
+        transform: scale(2) rotate(-20deg);
+    }
+    60%{
+        transform: scale(4) rotate(20deg);
     }
     100%{
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
     }
 }
 #down.clicked{
