@@ -17,12 +17,46 @@ body{
     pointer-events: none;
 }
 #fix{
-    width: 240px;
+    color: #0b1838;
+    width: 270px;
     min-width: 240px;
-    height: 70vh;
+    height: 100vh;
     overflow-y: auto;
     padding: 20px;
     box-sizing: border-box;
-    background-color: #011f52c3;
+    background-color: #365487b1;
     border-radius: 12px;
+    top: 0;
+    position: fixed;
+    left:0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
 }
+header{
+    text-align: center;
+}
+#fix input[type="range"]{
+    width: 100%;
+}
+#fix button{
+    width: 100%;
+}
+#fix h3{
+    margin-bottom: 4px;
+}
+/* slider track */
+#fix input[type="range"] {
+    width: 100%;
+    height: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: #203d70;
+    border: 1px solid #0b1838;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    margin: 12px 0 20px;
+}
+
