@@ -115,3 +115,7 @@ main{
 #upload{
     display: none;
 }
+header a{
+    color: #0b1838;
+    text-decoration: none;
+}
