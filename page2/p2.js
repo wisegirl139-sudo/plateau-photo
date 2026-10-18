@@ -124,7 +124,7 @@ function picup(){
     cx.scale(fx?-1:1,fy?-1:1);
     let b=Number(document.getElementById("b").value);
     let co=Number(document.getElementById("cont").value);
-    let fil=`brightness(${b}%)contrast(${co}%)`;
+    let fil=`brightness(${b}%) contrast(${co}%)`;
     if(mode==="gray") fil+="grayscale(100%)";
     if(mode==="neg") fil +="invert(100%)";
     if(mode==="vin") fil+="sepia(75%)";
