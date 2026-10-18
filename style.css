@@ -56,13 +56,14 @@ button:active{
     z-index: -1;
     pointer-events: none;
 }
-#pic{
+#pic {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
+    width: 130vh;
+    height: 130vh;
+    top: -30vh;
+    left: 0vh;
     z-index: 1;
     rotate: -90deg;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
 }
