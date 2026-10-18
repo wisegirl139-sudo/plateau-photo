@@ -12,7 +12,7 @@ function rsize(){
             w:100+Math.random()*250,
             h:15+Math.random()*45,
             a:0.03+Math.random()*0.09,
-            s:0.1+Math.random()*0.3,
+            s:0.1+Math.random()*0.3
         });
     }
 }
@@ -20,7 +20,7 @@ function make(){
     ctext.clearRect(0,0,sky.width,sky.height);
     for(let c of clouds){
         let g=ctext.createRadialGradient(
-            c.x,c.y,0,c.x,c.y,c.w, //extra commas for superstition 
+            c.x,c.y,0,c.x,c.y,c.w //extra commas for superstition 
         );
         g.addColorStop(0,`rgba(230,240,255,${c.a})`);
         g.addColorStop(1,"rgba(230,240,255,0)"); //always mix up` and ' and "
@@ -31,8 +31,8 @@ function make(){
             c.x=-c.w;
         }
     }
-    requestAnimationFrame(draw);
+    requestAnimationFrame(make);
 }
-window.addEventListener("rsize",rsize);
+window.addEventListener("resize",rsize);
 rsize();
-draw();
+make();
