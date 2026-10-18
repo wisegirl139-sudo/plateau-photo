@@ -4,6 +4,10 @@
         <meta charset="utf-8">
         <title>rotidE-Editor</title>
         <link rel="stylesheet" href="p2.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Atomic+Age&display=swap" rel="stylesheet">
+       
     </head>
     <body>
         <header>
@@ -15,20 +19,19 @@
             <p>upload a png or jpg to get started</p>
             <input type="file" id="upload" accept="image/*">
             <div id="prev">
-                <canvas id="pic"></canvas>
             </div>
             <div id="fix">
                 <h3>fixer uppers</h3>
-                <label for="brightness">brightness</label>
+                <label for="b">brightness</label>
                 <input type="range" id="b" min="0" max="200" value="100">
-                <label for="contrast">contrast</label>
+                <label for="cont">contrast</label>
                 <input type="range" id="cont" min="0" max="200" value="100">
-                <label for="vignette">vignette</label>
-                <input type="range" id="vig" min="0" max="200" value="100">
-                <label for="warmth">warmth</label>
-                <input type="range" id="warm" min="0" max="200" value="100">
+                <label for="vig">vignette</label>
+                <input type="range" id="vig" min="0" max="200" value="0">
+                <label for="warm">warmth</label>
+                <input type="range" id="warm" min="0" max="200" value="0">
                 <label for="cold">cold</label>
-                <input type="range" id="cold" min="0" max="200" value="100">
+                <input type="range" id="cold" min="0" max="200" value="0">
                 <h3>transform</h3>
                 <button id="rot">rotate</button>
                 <button id="flip1">flip vertically</button>
@@ -42,6 +45,9 @@
                 <h3>done?</h3>
                 <button id="down">download ur pic</button>
             </div>
+            <canvas id="clouds"></canvas>
         </main>
+        <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+        <script src="p2.js"></script>
     </body>
 </html>
