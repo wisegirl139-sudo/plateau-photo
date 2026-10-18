@@ -74,7 +74,14 @@ function load(f){
     };
     pic.onerror=function(){
         alert("wassup fam the iamge dint load");
-        URL.revokeObjectURL
+        URL.revokeObjectURL();
     };
     pic.src=url;
 }
+//would you rahter load up or load down 
+dr.addEventListener("click",function(e){
+    if(e.target !==up)up.click();
+});
+up.addEventListener("change",function(){
+    load(up.files[0]);
+});
