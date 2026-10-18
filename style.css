@@ -58,12 +58,12 @@ button:active{
 }
 #pic {
     position: fixed;
-    width: 100vh;
-    height: 100vw;
+    width: max(100vh,100vw);
+    height: max(100vh,100vw);
     top: 50%;
     left: 50%;
     z-index: 1;
     object-fit: cover;
     object-position: center;
-    transform: translate(-50%, -50%) rotate(-90deg) ;
+    transform: translate(-50%, -50%) rotate(-90deg);
 }
