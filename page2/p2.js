@@ -69,6 +69,8 @@ function load(f){
         document.getElementById("vig").value=0;
         document.getElementById("warm").value=0;
         document.getElementById("cold").value=0;
+        dr.style.display="none";
+        pr.style.display="block";
         draw();
         URL.revokeObjectURL(url);
     };
@@ -103,3 +105,24 @@ dr.addEventListener("drop",function(e){
         alert("drap a png or a jpeg my guy");
     }
 });
+//okay heres what were doing were gonna put the image ona canvas and yeah well see from there 
+function picup(){
+    if(!ready) return;
+    let w=pic.naturalWidth;
+    let h=pic.naturalHeight;
+    let turn=((ang%360)+360)%360;
+    if(turn===90||turn===270){
+        cv.width=h;
+        cv.height=w;
+    }else{
+        cv.width=w;
+        cv.height=h;
+    }
+    cx.save();
+    cx.translate(cv.width/2,cv.height/2);
+    cx.rotate(ang*Math.PI/180);
+    cx.scale(fx?-1:1,fy?-1:1);
+    let b=Number(document.getElementById("b").value);
+    let co=Number(document.getElementById("cont").value);
+    let fil=`brightness(b%)contrast({co%})`;
+}
