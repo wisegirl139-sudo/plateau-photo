@@ -26,7 +26,16 @@ function make(){
         ctext.rotate(c.ang);
         let g=ctext.createLinearGradient(-c.w,0,c.w,0);
         g.addColorStop(0,"rgba(230,240,255,0)");
-        g.addColorStop(0.3,`rgba(230)`)
+        g.addColorStop(0.3,`rgba(230,240,255,${c.a})`);
+        g.addColorStop(0.5,`rgba(230,240,255,${c.a*1.5})`);
+        g.addColorStop(1,"rgba(230,240,255,0)");
+        ctext.fillStyle=g;
+        ctext.beginPath();
+        ctext.elipse(0,0,c.w,c.h,0,0,Math.PI*2);
+        ctext.fill();
+        ctext.restore();
+        c.x+=c.s;
+        c.y+=Math.sin((c.x+c.p)*0.005)*0.3;
     }
     requestAnimationFrame(make);
 }
