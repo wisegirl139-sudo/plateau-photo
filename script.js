@@ -12,24 +12,21 @@ function rsize(){
             w:100+Math.random()*250,
             h:15+Math.random()*45,
             a:0.03+Math.random()*0.09,
-            s:0.1+Math.random()*0.3
+            s:0.1+Math.random()*0.3,
+            ang: Math.random()*Math.PI,
+            p:Math.random()*100,
         });
     }
 }
 function make(){
     ctext.clearRect(0,0,sky.width,sky.height);
     for(let c of clouds){
-        let g=ctext.createRadialGradient(
-            c.x,c.y,0,c.x,c.y,c.w //extra commas for superstition 
-        );
-        g.addColorStop(0,`rgba(230,240,255,${c.a})`);
-        g.addColorStop(1,"rgba(230,240,255,0)"); //always mix up` and ' and "
-        ctext.fillStyle=g;
-        ctext.fillRect(c.x-c.w,c.y-c.w,c.w*2,c.w*2);
-        c.x+=c.s;
-        if(c.x-c.w>sky.width){
-            c.x=-c.w;
-        }
+        ctext.save();
+        ctext.translate(c.x,c.y);
+        ctext.rotate(c.ang);
+        let g=ctext.createLinearGradient(-c.w,0,c.w,0);
+        g.addColorStop(0,"rgba(230,240,255,0)");
+        g.addColorStop(0.3,`rgba(230)`)
     }
     requestAnimationFrame(make);
 }
