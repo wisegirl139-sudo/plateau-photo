@@ -12,8 +12,12 @@ for(let i=1;i<=3;i++){
 function make(){
     ctext.clearRect(0,0,sky.width,sky.height);
     if(img.every(im=>im.complete && im.naturalWidth>0)){
-        for(let i=0;i<8;i++){
-            ctext.drawImage(img[i],x+i*200,100,200,100);
+        for(let i=0;i<3;i++){
+            ctext.save();
+            ctext.translate(x+i*200+100,150);
+            ctext.rotate(-Math.PI/2);
+            ctext.drawImage(img[i],-50,-100,100,200);
+            ctext.restore();
         }
     }
     x-=1;
