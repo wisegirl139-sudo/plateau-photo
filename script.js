@@ -31,11 +31,15 @@ function make(){
         g.addColorStop(1,"rgba(230,240,255,0)");
         ctext.fillStyle=g;
         ctext.beginPath();
-        ctext.elipse(0,0,c.w,c.h,0,0,Math.PI*2);
+        ctext.ellipse(0,0,c.w,c.h,0,0,Math.PI*2);
         ctext.fill();
         ctext.restore();
         c.x+=c.s;
         c.y+=Math.sin((c.x+c.p)*0.005)*0.3;
+        if(c.x-c.w>sky.width){
+            c.x=-c.w;
+            c.y=Math.random()*sky.height;
+        }
     }
     requestAnimationFrame(make);
 }
