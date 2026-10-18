@@ -155,3 +155,7 @@ function picup(){
         cx.fillRect(0,0,cv.width,cv.height);
     }
 }
+//bar time, i mean a slider bar get ur mind out the bachelor phase lowk
+["b","cont","vig","warm","cold"].forEach(function(id){
+    document.getElementById(id).addEventListener("input",draw);
+});
