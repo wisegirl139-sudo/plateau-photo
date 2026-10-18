@@ -30,21 +30,21 @@ let x=0;
 function draw(img,x,y,w,h){
     ctext.save();
     ctext.translate(x+w/2,y+h/2);
-    ctext.rotate(Math.PI/2);
-    ctext.drawImage(img,-w/2,-h/2,w,h);
+    ctext.rotate(-Math.PI/2);
+    ctext.drawImage(img,-h/2,-w/2,h,w);
     ctext.restore();
 }
 
 function make(){
     ctext.clearRect(0,0,sky.width,sky.height);
     if(img.every(im=>im.complete && im.naturalWidth>0)){
-        draw.drawImage(img[0],x,100,200,100);
-        draw.drawImage(img[1],x+200,100,200,100);
-        draw.drawImage(img[2],x+400,100,200,100);
+        draw(img[0],x,100,200,100);
+        draw(img[1],x+200,100,200,100);
+        draw(img[2],x+400,100,200,100);
     }
-    x+=0.5;
-    if(x>sky.width){
-        x=-600;
+    x-=1;
+    if(x<-600){
+        x=sky.width;
     }
     requestAnimationFrame(make);
 }
