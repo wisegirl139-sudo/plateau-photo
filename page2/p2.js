@@ -85,3 +85,20 @@ dr.addEventListener("click",function(e){
 up.addEventListener("change",function(){
     load(up.files[0]);
 });
+//drag queens fr
+dr.addEventListener("dragover",function(e){
+    dr.style.backgroundColor="#426db3";
+});
+dr.addEventListener("dragleave",function(){
+    dr.style.backgroundColor="";
+});
+dr.addEventListener("drop",function(e){
+    e.preventDefault();
+    dr.style.backgroundColor="";
+    let f=e.e.dataTransfer.files[0];
+    if(f && (f.type==="image/png"||f.type==="image/jpeg")){
+        load(f);
+    }else{
+        alert("drap a png or a jpeg my guy");
+    }
+});
