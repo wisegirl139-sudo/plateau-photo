@@ -30,9 +30,11 @@ function make(){
         g.addColorStop(0.5,`rgba(230,240,255,${c.a*1.5})`);
         g.addColorStop(1,"rgba(230,240,255,0)");
         ctext.fillStyle=g;
+        ctext.filter="blur(5px)";
         ctext.beginPath();
         ctext.ellipse(0,0,c.w,c.h,0,0,Math.PI*2);
         ctext.fill();
+        ctext.filter="none";
         ctext.restore();
         c.x+=c.s;
         c.y+=Math.sin((c.x+c.p)*0.005)*0.3;
