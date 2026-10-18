@@ -88,3 +88,26 @@ header{
     box-shadow: 0 0 10px #e6c78a;
     transform: scale(1.1);
 }
+#drop{
+    align-items: center;
+    margin-left: 240px;
+    margin-top: 30px;
+    margin-right: 0;
+    border: 3px dashed #e6c78a;
+    background-color: #203d70;
+    color: #f3e6c8;
+    width: 350px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+    transition: 0.2s;
+}
+#drop:hover{
+    background-color: #426db3;
+    border-color: white;
+}
+#upload{
+    display: none;
+}
