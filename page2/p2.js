@@ -74,7 +74,7 @@ function load(f){
     };
     pic.onerror=function(){
         alert("wassup fam the iamge dint load");
-        URL.revokeObjectURL();
+        URL.revokeObjectURL(url);
     };
     pic.src=url;
 }
@@ -87,6 +87,7 @@ up.addEventListener("change",function(){
 });
 //drag queens fr
 dr.addEventListener("dragover",function(e){
+    e.preventDefault();
     dr.style.backgroundColor="#426db3";
 });
 dr.addEventListener("dragleave",function(){
@@ -95,7 +96,7 @@ dr.addEventListener("dragleave",function(){
 dr.addEventListener("drop",function(e){
     e.preventDefault();
     dr.style.backgroundColor="";
-    let f=e.e.dataTransfer.files[0];
+    let f=e.dataTransfer.files[0];
     if(f && (f.type==="image/png"||f.type==="image/jpeg")){
         load(f);
     }else{
