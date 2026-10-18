@@ -71,7 +71,7 @@ function load(f){
         document.getElementById("cold").value=0;
         dr.style.display="none";
         pr.style.display="block";
-        draw();
+        picup();
         URL.revokeObjectURL(url);
     };
     pic.onerror=function(){
@@ -124,5 +124,34 @@ function picup(){
     cx.scale(fx?-1:1,fy?-1:1);
     let b=Number(document.getElementById("b").value);
     let co=Number(document.getElementById("cont").value);
-    let fil=`brightness(b%)contrast({co%})`;
+    let fil=`brightness(${b}%)contrast(${co}%)`;
+    if(mode==="gray") fil+="grayscale(100%)";
+    if(mode==="neg") fil +="invert(100%)";
+    if(mode==="vin") fil+="sepia(75%)";
+    cx.filter=fil;
+    cx.drawImage(pic,-w/2,-h/2,w,h);
+    cx.filter="none";
+    cx.restore();
+    let warm = Number(document.getElementById("warm").value);
+    let cold=Number(document.getElementById("cold").value);
+    if(warm>0){
+        cx.fillStyle=`rgba(255,130,20,${warm/600})`;
+        cx.fillRect(0,0,cv.width,cv.height);
+    }
+    //its very very late and i am genuinely on autopilot , do yall think squirres could take over the world
+    if(cold>0){
+        cx.fillStyle=`rgba(30,100,255,${cold/600})`;
+        cx.fillRect(0,0,cv.width,cv.height);
+    }
+    let v=Number(document.getElementById("vig").value)/200;
+    if(v>0){
+        let r=Math.max(cv.width,cv.height)*0.75;
+        let g=cx.createRadialGradient(cv.width/2,cv.height/2,r*0.2,
+            cv.width/2,cv.height/2,r
+        );
+        g.addColorStop(0,"rgba(0,0,0,0)");
+        g.addColorStop(1,`rgba(0,0,0,${v})`);
+        cx.fillStyle=g;
+        cx.fillRect(0,0,cv.width,cv.height);
+    }
 }
