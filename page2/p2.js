@@ -47,14 +47,34 @@ let dr=document.getElementById("drop");
 let pr=document.getElementById("prev");
 let pic=new Image();
 let ready=false,
-    ang=0,
-    fx=false,
-    fy=false,//dydx? nahhh fyfx, i ush i could use memes imagien the drake one here
-    mode="original";
-    let cv=document.createElement("canvas"); //almost got a jumpscare from cv, spooky employment
-    let cx=cv.getContext("2d");
-    cv.id="photo";
-    pr.appendChild(cv);
-    function load(f){
-        
-    }
+ang=0,
+fx=false,
+fy=false,//dydx? nahhh fyfx, i ush i could use memes imagien the drake one here
+mode="original";
+let cv=document.createElement("canvas"); //almost got a jumpscare from cv, spooky employment
+let cx=cv.getContext("2d");
+cv.id="photo";
+pr.appendChild(cv);
+function load(f){
+    if(!f||!f.type.startsWith("image/")) return;
+    let url=URL.createObjectURL(f);
+    pic.onload=function(){
+        ready=true;
+        ang=0;
+        fx=false;
+        fy=false;
+        mode="original";
+        document.getElementById("b").value=100;
+        document.getElementById("cont").value=100;
+        document.getElementById("vig").value=0;
+        document.getElementById("warm").value=0;
+        document.getElementById("cold").value=0;
+        draw();
+        URL.revokeObjectURL(url);
+    };
+    pic.onerror=function(){
+        alert("wassup fam the iamge dint load");
+        URL.revokeObjectURL
+    };
+    pic.src=url;
+}
