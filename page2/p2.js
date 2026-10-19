@@ -55,6 +55,7 @@ let cv=document.createElement("canvas"); //almost got a jumpscare from cv, spook
 let cx=cv.getContext("2d");
 cv.id="photo";
 pr.appendChild(cv);
+let bef=false;
 function load(f){
     if(!f||!f.type.startsWith("image/")) return;
     let url=URL.createObjectURL(f);
@@ -111,6 +112,12 @@ function picup(){
     let w=pic.naturalWidth;
     let h=pic.naturalHeight;
     let turn=((ang%360)+360)%360;
+    if(before){
+        cv.width=w;
+        cv.height=h;
+        cx.drawImage(pic,0,0,w,h);
+        return;
+    }
     if(turn===90||turn===270){
         cv.width=h;
         cv.height=w;
@@ -128,10 +135,15 @@ function picup(){
     if(mode==="gray") fil+="grayscale(100%)";
     if(mode==="neg") fil +="invert(100%)";
     if(mode==="vin") fil+="sepia(75%)";
+    if(mode==="sun") fil+="sepia(35%) saturate(160%) contrast(110%)"
     cx.filter=fil;
     cx.drawImage(pic,-w/2,-h/2,w,h);
     cx.filter="none";
     cx.restore();
+    if(mode==="sun"){
+        cx.fillStyle="rgba(255,100,20,0.18)";
+        cx.fillRect(0,0,cv.width,cv.height);
+    }
     let warm = Number(document.getElementById("warm").value);
     let cold=Number(document.getElementById("cold").value);
     if(warm>0){
@@ -153,6 +165,17 @@ function picup(){
         g.addColorStop(1,`rgba(0,0,0,${v})`);
         cx.fillStyle=g;
         cx.fillRect(0,0,cv.width,cv.height);
+    }
+    if(mode==="grr"){
+        let data=cx.getImageData(0,0,cv.width,cv.height);
+        let px=data.data;
+        for(let i=0;i<px;i+=4){
+            let n=(Math.random()-0.5)*45;
+            px[i]+=n;
+            px[i+1]+=n;
+            px[i+2]+=n;
+        }
+        cx.putImageData(data,0,0);
     }
 }
 //bar time, i mean a slider bar get ur mind out the bachelor phase lowk
@@ -231,3 +254,13 @@ down.addEventListener("click",function(){
     a.href=cv.toDataURL();
     a.click();
 });
+document.getElementById("before").addEventListener("click",function(){
+    if(!ready) return;
+    bef=!bef;
+    if(bef){
+        this.textContent="see edits";
+    }else{
+        this.textContent="see og"
+    }
+    picup
+})
