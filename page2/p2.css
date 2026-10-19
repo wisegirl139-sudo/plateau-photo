@@ -158,3 +158,14 @@ header a{
 #down.clicked{
     animation: pulse 0.5s ease;
 }
+#prev{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 240px;
+}
+#photo{
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
