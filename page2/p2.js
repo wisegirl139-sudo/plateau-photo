@@ -203,3 +203,21 @@ document.getElementById("neg").addEventListener("click",function(){
     mode="neg";
     picup();
 });
+//da reste buton
+document.getElementById("reset").addEventListener("click",function(){
+    if(!ready) return;
+    ang=0;
+    mode="original";
+    document.getElementById("b").value=100;
+    document.getElementById("cont").value=100;
+    document.getElementById("vig").value=0;
+    document.getElementById("warm").value=0;
+    document.getElementById("cold").value=0;
+    picup();
+});
+//download time
+down.addEventListener("click",function(){
+    down.classList.remove("clicked");
+    void down.offsetWidth;
+    down.classList.add("clicked");
+})
