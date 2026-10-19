@@ -169,3 +169,10 @@ header a{
     max-height: 80vh;
     object-fit: contain;
 }
+#msg{
+    font-size: 14px;
+    text-align: center;
+}
+#again{
+    margin-top: 10px;
+}

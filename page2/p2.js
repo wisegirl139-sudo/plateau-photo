@@ -249,10 +249,13 @@ down.addEventListener("click",function(){
         alert("upload an image firstt");
         return;
     }
+    document.getElementById("msg").textContent="";
     let a= document.createElement("a");
     a.download="plateau-photo.png";
     a.href=cv.toDataURL();
     a.click();
+    document.getElementById("msg").textContent="your pic has been saved somewhere";
+
 });
 document.getElementById("before").addEventListener("click",function(){
     if(!ready) return;
@@ -272,4 +275,19 @@ document.getElementById("sun").addEventListener("click",function(){
     if(!ready) return;
     mode="sun";
     picup();
+});
+document.getElementById("ag").addEventListener("click",function(){
+    ready=false;
+    bef=false;
+    ang=0;
+    fx=false;
+    fy=false;
+    mode="original";
+    up.value="";
+    pr.style.display="none";
+    dr.style.distplay="block";
+    document.getElementById("msg").textContent="";
+    document.getElementById("before").textContent="see original";
+    ["b","cont"].forEach(id=>document.getElementById(id).value=100);
+    ["vig","warm","cold"].forEach(id=>document.getElementById(id).value=0);
 });
