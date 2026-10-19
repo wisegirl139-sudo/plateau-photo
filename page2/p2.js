@@ -208,6 +208,8 @@ document.getElementById("reset").addEventListener("click",function(){
     if(!ready) return;
     ang=0;
     mode="original";
+    fx=false;
+    fy=false;
     document.getElementById("b").value=100;
     document.getElementById("cont").value=100;
     document.getElementById("vig").value=0;
@@ -220,4 +222,12 @@ down.addEventListener("click",function(){
     down.classList.remove("clicked");
     void down.offsetWidth;
     down.classList.add("clicked");
-})
+    if(!ready){
+        alert("upload an image firstt");
+        return;
+    }
+    let a= document.createElement("a");
+    a.download="plateau-photo.png";
+    a.href=cv.toDataURL();
+    a.click();
+});
