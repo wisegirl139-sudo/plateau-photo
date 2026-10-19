@@ -285,7 +285,7 @@ document.getElementById("ag").addEventListener("click",function(){
     mode="original";
     up.value="";
     pr.style.display="none";
-    dr.style.distplay="block";
+    dr.style.display="flex";
     document.getElementById("msg").textContent="";
     document.getElementById("before").textContent="see original";
     ["b","cont"].forEach(id=>document.getElementById(id).value=100);
