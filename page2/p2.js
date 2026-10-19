@@ -176,3 +176,30 @@ document.getElementById("flip2").addEventListener("click",function(){
     fy=!fy;
     picup();
 });
+//is that a filter , yes
+document.getElementById("og").addEventListener("click",function(){
+    if(!ready) return;
+    mode="original";
+    ["b","cont"].forEach(id=>{
+        document.getElementById(id).value=100;
+    });
+    ["warm","cold","vig"].forEach(id=>{
+        document.getElementById(id).value=0;
+    });
+    picup();
+});
+document.getElementById("gray").addEventListener("click",function(){
+    if(!ready) return;
+    mode="gray";
+    picup();
+});
+document.getElementById("vin").addEventListener("click",function(){
+    if(!ready) return;
+    mode="vin";
+    picup();
+});
+document.getElementById("neg").addEventListener("click",function(){
+    if(!ready) return;
+    mode="neg";
+    picup();
+});
