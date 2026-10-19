@@ -112,7 +112,7 @@ function picup(){
     let w=pic.naturalWidth;
     let h=pic.naturalHeight;
     let turn=((ang%360)+360)%360;
-    if(before){
+    if(bef){
         cv.width=w;
         cv.height=h;
         cx.drawImage(pic,0,0,w,h);
@@ -169,7 +169,7 @@ function picup(){
     if(mode==="grr"){
         let data=cx.getImageData(0,0,cv.width,cv.height);
         let px=data.data;
-        for(let i=0;i<px;i+=4){
+        for(let i=0;i<px.length;i+=4){
             let n=(Math.random()-0.5)*45;
             px[i]+=n;
             px[i+1]+=n;
@@ -262,5 +262,14 @@ document.getElementById("before").addEventListener("click",function(){
     }else{
         this.textContent="see og"
     }
-    picup
-})
+    picup();});
+document.getElementById("grr").addEventListener("click",function(){
+    if(!ready) return;
+    mode="grr";
+    picup();
+});
+document.getElementById("sun").addEventListener("click",function(){
+    if(!ready) return;
+    mode="sun";
+    picup();
+});
